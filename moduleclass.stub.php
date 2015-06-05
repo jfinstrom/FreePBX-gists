@@ -5,8 +5,8 @@ namespace FreePBX\modules;
  * In _Construct you may remove the database line if you don't use it
  * In getActionbar change "modulename" to the display value for the page
  * In getActionbar change extdisplay to align with whatever variable you use to decide if the page is in edit mode.
- * 
- */ 
+ *
+ */
 
 class Classname implements \BMO {
 	public function __construct($freepbx = null) {
@@ -16,11 +16,11 @@ class Classname implements \BMO {
 		$this->FreePBX = $freepbx;
 		$this->db = $freepbx->Database;
 	}
-    public function install() {}
-    public function uninstall() {}
-    public function backup() {}
-    public function restore($backup) {}
-    public function doConfigPageInit($page) {}
+	public function install() {}
+	public function uninstall() {}
+	public function backup() {}
+	public function restore($backup) {}
+	public function doConfigPageInit($page) {}
 	public function getActionBar($request) {
 		$buttons = array();
 		switch($request['display']) {
@@ -48,5 +48,36 @@ class Classname implements \BMO {
 			break;
 		}
 		return $buttons;
+	}
+	public function ajaxRequest($req, &$setting) {
+		switch ($req) {
+			case 'getJSON':
+				return true;
+			break;
+			default:
+				return false;
+			break;
+		}
+	}
+	public function ajaxHandler(){
+		switch ($_REQUEST['command']) {
+			case 'getJSON':
+				switch ($_REQUEST['jdata']) {
+					case 'grid':
+						$ret = array();
+						/*code here to generate array*/
+						return $ret;
+					break;
+
+					default:
+						return false;
+					break;
+				}
+			break;
+
+			default:
+				return false;
+			break;
+		}
 	}
 }

@@ -13,28 +13,20 @@
 		<div class="row">
 			<div class="col-sm-9">
 				<div class="fpbx-container">
-					<form class="fpbx-submit" name="frm_extensions" action="" method="post" data-fpbx-delete="" role="form">
+					<div class="display full-border">
 						<ul class="nav nav-tabs" role="tablist">
-							<li role="presentation" data-name="tab1" class="active">
-								<a href="#tab1" aria-controls="certificates" role="tab" data-toggle="tab">
-									<?php echo _("Tab1")?>
-								</a>
-							</li>
-							<li role="presentation" data-name="tab2" class="change-tab">
-								<a href="#tab2" aria-controls="casettings" role="tab" data-toggle="tab">
-									<?php echo _("Tab2")?>
-								</a>
-							</li>
+							<li data-name="tab1" class="change-tab active"><a href="#tab1" aria-controls="tab1" role="tab" data-toggle="tab">Tab1 (active!)</a></li>
+							<li data-name="tab2" class="change-tab"><a href="#tab2" aria-controls="tab2" role="tab" data-toggle="tab">Tab2</a></li>
 						</ul>
 						<div class="tab-content display">
-							<div role="tabpanel" id="tab1" class="tab-pane active">
-								Tab1 Content
+							<div id="tab1" class="tab-pane active">
+								Tab 1 Data (Shown)
 							</div>
-							<div role="tabpanel" id="casettings" class="tab-pane">
-								Tab2 Content		
+							<div id="tab2" class="tab-pane">
+								Tab 2 Data (Hidden)
 							</div>
 						</div>
-					</form>
+					</div>
 				</div>
 			</div>
 			<div class="col-sm-3 hidden-xs bootnav">
