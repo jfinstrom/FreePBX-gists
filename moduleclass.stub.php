@@ -16,8 +16,6 @@ class Classname implements \BMO {
 		$this->FreePBX = $freepbx;
 		$this->db = $freepbx->Database;
 	}
-	public function install() {}
-	public function uninstall() {}
 	public function backup() {}
 	public function restore($backup) {}
 	public function doConfigPageInit($page) {}
