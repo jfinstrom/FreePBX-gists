@@ -80,4 +80,9 @@ class Classname implements \BMO {
 			break;
 		}
 	}
+	public function getRightNav($request) {
+		$html = 'your custom html';
+		return $html;
+	}
+	
 }
