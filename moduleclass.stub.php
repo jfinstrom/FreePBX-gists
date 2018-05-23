@@ -18,12 +18,10 @@ class Classname implements \BMO {
 	}
 	public function install() {}
 	public function uninstall() {}
-	public function backup() {}
-	public function restore($backup) {}
 	public function doConfigPageInit($page) {}
 	public function getActionBar($request) {
 		$buttons = array();
-		switch($request['display']) {
+		switch($_GET['display']) {
 			case 'modulename':
 				$buttons = array(
 					'delete' => array(
@@ -42,7 +40,7 @@ class Classname implements \BMO {
 						'value' => _('Submit')
 					)
 				);
-				if (empty($request['extdisplay'])) {
+				if (empty($_GET['extdisplay'])) {
 					unset($buttons['delete']);
 				}
 			break;
@@ -53,36 +51,28 @@ class Classname implements \BMO {
 		switch ($req) {
 			case 'getJSON':
 				return true;
-			break;
 			default:
 				return false;
-			break;
 		}
 	}
 	public function ajaxHandler(){
 		switch ($_REQUEST['command']) {
 			case 'getJSON':
-				switch ($_REQUEST['jdata']) {
+				switch ($_GET['jdata']) {
 					case 'grid':
 						$ret = array();
 						/*code here to generate array*/
 						return $ret;
-					break;
-
 					default:
 						return false;
-					break;
 				}
-			break;
-
 			default:
 				return false;
-			break;
 		}
 	}
 	public function getRightNav($request) {
+		//You should probably load_view() here
 		$html = 'your custom html';
 		return $html;
 	}
-	
 }
