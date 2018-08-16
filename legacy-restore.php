@@ -9,7 +9,7 @@ public function processLegacy($pdo, $data, $tables, $unknownTables, $tmpfiledir)
   $bmo = $this->FreePBX->Callback;
   $bmo->setDatabase($pdo);
   $data = $bmo->foo();
-  $cb->resetDatabase();
-  /*do stuff with data*
+  $bmo->resetDatabase();
+  /* do stuff with data */
   return $this;
 }
